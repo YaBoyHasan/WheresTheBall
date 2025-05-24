@@ -22,3 +22,10 @@ def logout():
     session.clear()
     flash("You’ve been logged out.", "info")
     return redirect(url_for("core.home"))
+
+
+@auth_blueprint.route("/logout")
+def logout():
+    session.clear()
+    flash("You’ve been logged out.", "info")
+    return redirect(url_for("core.home"))
