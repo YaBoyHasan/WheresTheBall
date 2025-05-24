@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <h1 class="fw-bold text-info mb-3">
+      <i class="bi bi-info-circle me-2"></i>What’s WheresTheBall?
+    </h1>
+    <p class="lead text-white-75">
+      BOTB’s cool and all — until you realise you're just guessing. We’re changing that. <span class="text-info fw-semibold">WheresTheBall</span> uses AI, not gut feelings.
+    </p>
+  </div>
+
+  <div class="row g-5 align-items-center">
+    <div class="col-md-6">
+      <h3 class="text-info mb-3"><i class="bi bi-lightning me-2"></i>Why We Built It</h3>
+      <p class="text-white-75 fs-6">
+        We got sick of losing. So instead of crying, we coded.
+        <br><br>
+        Our squad reverse-engineered the chaos — feeding real BOTB images into deep learning models that don’t guess. They <em>calculate</em>.
+      </p>
+    </div>
+    <div class="col-md-6 text-center">
+      <img src="{{ url_for('static', filename='img/ai-target.jpg') }}" class="img-fluid rounded-4 border border-info border-opacity-25 shadow" alt="AI targeting">
+    </div>
+  </div>
+
+  <div class="row mt-5 g-4">
+    <div class="col-md-3">
+      <div class="card h-100 bg-dark border-info border-opacity-25 text-center p-4 hover-scale">
+        <div class="mb-3"><i class="bi bi-cpu text-info fs-1"></i></div>
+        <h4 class="text-info">AI Trained on History</h4>
+        <p class="text-white-75 mb-0">Thousands of competition images, real judge results, and pattern detection — all in one engine.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card h-100 bg-dark border-info border-opacity-25 text-center p-4 hover-scale">
+        <div class="mb-3"><i class="bi bi-rocket-takeoff text-info fs-1"></i></div>
+        <h4 class="text-info">Always Getting Smarter</h4>
+        <p class="text-white-75 mb-0">Every week we feed it new data. Every week it gets better. No static models here.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card h-100 bg-dark border-info border-opacity-25 text-center p-4 hover-scale">
+        <div class="mb-3"><i class="bi bi-eye text-info fs-1"></i></div>
+        <h4 class="text-info">Full Transparency</h4>
+        <p class="text-white-75 mb-0">We show predictions <em>and</em> compare them to the actual winners. See it. Trust it.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card h-100 bg-dark border-info border-opacity-25 text-center p-4 hover-scale">
+        <div class="mb-3"><i class="bi bi-gem text-info fs-1"></i></div>
+        <h4 class="text-info">Pro Access</h4>
+        <p class="text-white-75 mb-0">
+          Donators help keep us running — and in return, they unlock access to our top 5 model predictions, historical results, AI average overlays, and more.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .hover-scale {
+    transition: all 0.3s ease-in-out;
+  }
+  .hover-scale:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 200, 255, 0.2);
+  }
+</style>
+{% endblock %}

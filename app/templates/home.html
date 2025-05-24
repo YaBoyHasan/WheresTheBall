@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+  <!-- Hero Section -->
+  <div class="hero-section text-center py-5 mb-5">
+    <h1 class="display-4 fw-bold mb-4" style="color: #00c8ff; text-shadow: 0 0 12px rgba(0,200,255,0.4);">
+      <i class="bi bi-bullseye me-2"></i>Struggling with BOTB?
+    </h1>
+    <p class="lead mb-4 text-white-75">
+      Our advanced AI analyzes historical patterns to pinpoint where the ball <span class="text-white fw-semibold">actually</span> lands.
+    </p>
+    
+    <div class="d-flex justify-content-center gap-3 mb-4">
+      <a class="btn btn-primary px-4 py-3 fw-bold" href="/latest" style="background-color: #00c8ff; border-color: #00c8ff;">
+        <i class="bi bi-lightning-charge-fill me-2"></i>Latest Prediction
+      </a>
+      <a class="btn btn-outline-light px-4 py-3 fw-bold" href="/history">
+        <i class="bi bi-graph-up me-2"></i>Previous Predictions
+      </a>
+    </div>
+  </div>
+
+  <!-- Info Section -->
+  <div class="text-center mb-5">
+    <h2 class="text-info mb-3"><i class="bi bi-stars me-2"></i>How It Works</h2>
+    <p class="text-white-75">We combine data science, pattern recognition, and transparency to give you the edge.</p>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card h-100 bg-dark border-info border-opacity-25 text-center p-4 hover-scale">
+        <div class="mb-3"><i class="bi bi-cpu text-info fs-1"></i></div>
+        <h4 class="text-info">AI Trained on History</h4>
+        <p class="text-white-75 mb-0">Thousands of competition images, real judge results, and pattern detection — all in one engine.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 bg-dark border-info border-opacity-25 text-center p-4 hover-scale">
+        <div class="mb-3"><i class="bi bi-rocket-takeoff text-info fs-1"></i></div>
+        <h4 class="text-info">Always Getting Smarter</h4>
+        <p class="text-white-75 mb-0">Every week we feed it new data. Every week it gets better. No static models here.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 bg-dark border-info border-opacity-25 text-center p-4 hover-scale">
+        <div class="mb-3"><i class="bi bi-eye text-info fs-1"></i></div>
+        <h4 class="text-info">Full Transparency</h4>
+        <p class="text-white-75 mb-0">We show predictions <em>and</em> compare them to the actual winners. See it. Trust it.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .hero-section {
+    background: radial-gradient(circle at center, rgba(0,200,255,0.05) 0%, rgba(18,18,18,1) 70%);
+  }
+
+  .hover-scale {
+    transition: all 0.3s ease-in-out;
+  }
+  .hover-scale:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 200, 255, 0.2);
+  }
+</style>
+{% endblock %}

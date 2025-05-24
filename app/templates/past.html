@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Past Predictions{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <h1 class="fw-bold text-info">
+      <i class="bi bi-clock-history me-2"></i>Past Predictions
+    </h1>
+    <p class="lead text-white-75">
+      Dive into our archive of predictions and see how our AI stacked up against the actual results.
+    </p>
+  </div>
+
+  {% if predictions %}
+  <div class="row g-4">
+    {% for p in predictions %}
+    <div class="col-md-4">
+      <div class="card bg-dark border-info border-opacity-25 h-100 shadow hover-scale">
+        <div class="card-body p-3 d-flex flex-column">
+          <div class="mb-3 text-center">
+            <img src="{{ p.image_url }}" alt="Prediction Image" class="img-fluid rounded border border-info border-opacity-25" style="max-height: 200px; object-fit: contain;">
+          </div>
+          <h5 class="text-info text-center mb-2">{{ p.comp_name }}</h5>
+          <div class="d-flex justify-content-around text-white-75">
+            <div>
+              <span class="fw-bold text-info">X:</span> {{ p.x }}
+            </div>
+            <div>
+              <span class="fw-bold text-info">Y:</span> {{ p.y }}
+            </div>
+          </div>
+        </div>
+        <div class="card-footer bg-transparent text-center">
+          <span class="badge bg-info bg-opacity-10 text-info">Predicted</span>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="alert alert-dark text-center mt-5 py-4">
+    <i class="bi bi-exclamation-circle me-2"></i>
+    <span class="text-white-75">No past predictions found. Check back after some predictions are made.</span>
+  </div>
+  {% endif %}
+</div>
+
+<style>
+  .hover-scale {
+    transition: all 0.3s ease;
+  }
+  .hover-scale:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 200, 255, 0.3);
+  }
+</style>
+{% endblock %}
