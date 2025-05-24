@@ -16,6 +16,9 @@ class Config:
     
     # Security
     SECRET_KEY = os.getenv("SECRET_KEY", "dev-key")  # Default weak key for development
+
+    # Botb Scraper
+    IMAGES_FOLDER = os.getenv("IMAGES_FOLDER", "botb_data/comp-images")
     
     # API Keys (optional)
     # GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")

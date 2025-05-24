@@ -38,8 +38,8 @@ def download_image(guid, filename):
         if r.status_code == 200:
             img = Image.open(BytesIO(r.content))
             if img.size == (4416, 3336):
-                os.makedirs(IMAGE_FOLDER, exist_ok=True)
-                path = os.path.join(IMAGE_FOLDER, filename)
+                os.makedirs(Config.IMAGES_FOLDER, exist_ok=True)
+                path = os.path.join(Config.IMAGES_FOLDER, filename)
                 img.save(path)
                 return img.size
             else:
