@@ -1,88 +1,77 @@
-Spot The Ball AI Predictor
-A Flask web app that uses AI-powered models to predict the exact location of the hidden ball in popular "spot the ball" competitions like BOTB. No more guesswork — get data-driven predictions to improve your chances of winning.
+# Spot The Ball AI Predictor
 
-🎯 Project Overview
-"Spot the Ball" competitions are fun but notoriously tricky — typically based on gut feelings and guesswork. This project flips the script by leveraging AI models trained on historical competition images and results to generate precise ball location predictions.
+A Flask web app that uses AI to predict the correct coordinates in "spot the ball" competitions like BOTB.
 
-The app serves both casual users and dedicated pros by offering a simple, mobile-friendly interface and a subscription tier with multiple AI predictions and analytics.
+## 🎯 Project Goals
 
-🧠 Features
-👤 General Users
-View the latest competition image.
+- Provide accurate AI predictions for weekly BOTB competitions.
+- Help users win or improve their own guesses using multiple AI models.
+- Offer a simple, clean, mobile-friendly interface for users.
 
-Get a single AI prediction overlay with the click of a button.
+## 🧠 Features
 
-Responsive, clean UI optimized for desktop and mobile.
+### 👤 General Users
+- View the latest competition image.
+- Click "Predict" to get AI prediction overlay.
+- Mobile responsive layout.
 
-🚀 Pro Subscribers
-Unlock 5 different AI model predictions for each competition image.
+### 🚀 Pro Users (Subscription)
+- View predictions from 5 different AI models.
+- See average prediction.
+- Access historical predictions and results.
+- Invite-only sign-up with one-time use code.
 
-View the average prediction for better confidence.
+### 🛠️ Admin Panel
+- Upload new competition image.
+- Trigger prediction on uploaded image.
+- View, manage, and invite users.
+- View prediction history.
+- Invite users via one-time invite codes.
 
-Access full history of past competition images, predictions, and actual results.
+### 💳 Payments
+- PayPal integration (IPN) for Pro subscription.
+- Donation support.
 
-Invite-only registration via one-time use codes.
+### 🔐 Authentication & Security
+- Email + password login.
+- CAPTCHA on signup/login.
+- Reset password via email.
+- Auto logout from other sessions.
+- Role-based access control.
 
-🛠️ Admin Panel
-Upload new competition images easily.
+### 🔍 SEO + Analytics
+- SEO-friendly metadata and structure.
+- Google Analytics integration.
 
-Trigger AI prediction jobs on new images.
+## 🧰 Tech Stack
 
-Manage users, generate invite codes, and review prediction history.
+- **Backend:** Flask (Python)
+- **Frontend:** HTML, CSS, JS (vanilla or lightweight framework)
+- **DB:** SQLite (`database.db`)
+- **ML Models:** CNN-based coordinate regression (e.g., MobileNetV2 + ChannelAttention, heatmap regression, etc.)
+- **Payments:** PayPal (IPN)
+- **Scraping:** Python script to pull weekly images + data from BOTB
 
-💳 Payments & Donations
-Integrated PayPal subscription payments with IPN callbacks.
+## 🧪 In Progress / TODO
 
-Support the project with donations for ongoing AI model improvements.
+- User management UI
+- Admin dashboard UI polish
+- Pro section UI layout
+- Finalize model selection logic
+- Historical image filter system
+- Improve mobile UI/UX
+- Add Google reCAPTCHA
 
-🔐 Security
-Secure email/password login.
+---
 
-CAPTCHA on sign-up and login to reduce spam.
+## 💡 Notes
 
-Password reset via email.
+- All AI model predictions are visualized on top of the competition image.
+- Coordinate normalization + scaling is handled internally.
+- System uses multiple AI models trained on scraped historical BOTB data.
 
-Session management with auto logout.
+---
 
-Role-based access controls (user, admin, pro subscriber).
+## 📬 Contact / Ideas
 
-📈 SEO & Analytics
-SEO-friendly page metadata.
-
-Google Analytics tracking.
-
-🧰 Tech Stack
-Backend: Python Flask
-
-Frontend: HTML, CSS, vanilla JS, Bootstrap 5
-
-Database: SQLite (database.db)
-
-Machine Learning: CNN-based coordinate regression models (MobileNetV2, heatmap regression, ChannelAttention layers, etc.)
-
-Payments: PayPal IPN for subscription management
-
-Scraping: Python scripts to scrape weekly competition images and results from BOTB
-
-🚧 Work In Progress
-Enhanced user management and UI polish.
-
-Pro dashboard with prediction comparisons and overlays.
-
-Advanced historical filtering and search.
-
-Improved mobile UI and UX.
-
-Google reCAPTCHA integration.
-
-💡 How It Works
-The AI models are trained on thousands of historical competition images and official judge results.
-
-Predictions are coordinate points representing where the AI estimates the ball is hidden.
-
-Multiple models provide diverse perspectives, and averaging them improves accuracy.
-
-The app overlays these predictions on the competition images for easy visualization.
-
-📬 Get Involved
-Interested in contributing, donating, or collaborating? Reach out or follow the repo for updates!
+If you're interested in helping out, donating, or collaborating — stay tuned for updates!
