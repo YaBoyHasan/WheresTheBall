@@ -1,7 +1,7 @@
 from flask import Flask, g, session
 from config import Config
-from app.core.routes import core_blueprint
-from app.auth.routes import auth_blueprint
+from app.routes.core import core_blueprint
+from app.routes.auth import auth_blueprint
 from app.models.user import db, User
 
 def create_app():

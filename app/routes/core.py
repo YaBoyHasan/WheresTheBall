@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template, url_for
 
-# core area
 core_blueprint = Blueprint("core", __name__)
 
 @core_blueprint.route("/")
@@ -24,6 +23,3 @@ def latest_prediction():
         "image_url": url_for('static', filename='images/prediction.jpeg')  # Get CompName, Predicted(X,Y), Image dynamically later
     }
     return render_template("core/latest.html", latest=latest)
-
-# auth area
-#   auth_blueprint = Blueprint("auth", __name__)
