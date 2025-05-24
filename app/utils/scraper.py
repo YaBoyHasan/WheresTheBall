@@ -7,8 +7,6 @@ from app.models.user import db
 from app.models.botb_comp import BotbComp
 from config import Config
 
-IMAGE_FOLDER = 'static/comp-images'
-
 def extract_coordinates(html_content):
     soup = BeautifulSoup(html_content, 'html.parser')
     judges_checkbox = soup.find('input', {'id': 'judged_checkbox'})
