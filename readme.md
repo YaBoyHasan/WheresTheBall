@@ -77,9 +77,9 @@ The project is in its early stages, with the following components implemented:
 
 Given the current state of the project, the following is an estimated timeline for completing the remaining features:
 
-AI Model Integration & Scraper Integration: 3–5 days
+AI Model Integration & Scraper Integration: 1-2 days
 
-Admin Panel & User Management: 5–7 days
+Admin Panel & User Management: 1-3 days
 
 Donator Perks & PayPal Integration: 3–5 days
 
