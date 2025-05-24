@@ -1,0 +1,18 @@
+from flask import Blueprint, render_template, redirect, url_for, flash, request, session
+from .forms import LoginForm
+
+auth_blueprint = Blueprint("auth", __name__, url_prefix="/auth")
+
+@auth_blueprint.route("/login", methods=["GET", "POST"])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        # Dummy login logic — replace with real DB check later
+        if form.email.data == "admin@example.com" and form.password.data == "password":
+            session["user_id"] = 1
+            session["email"] = form.email.data
+            flash("Logged in successfully", "success")
+            return redirect(url_for("core.home"))
+        else:
+            flash("Invalid credentials", "danger")
+    return render_template("auth/login.html", form=form)
