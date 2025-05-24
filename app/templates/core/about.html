@@ -6,64 +6,50 @@
 <div class="container py-5">
   <div class="text-center mb-5">
     <h1 class="fw-bold text-info mb-3">
-      <i class="bi bi-info-circle me-2"></i>What’s WheresTheBall?
+      <i class="bi bi-info-circle me-2"></i>What’s <span class="text-white">WheresTheBall?</span>
     </h1>
-    <p class="lead text-white-75">
-      BOTB’s cool and all — until you realise you're just guessing. We’re changing that. <span class="text-info fw-semibold">WheresTheBall</span> uses AI, not gut feelings.
+    <p class="lead text-white-50">
+      BOTB’s cool — until you realise you're guessing blind. We're flipping the game. 
+      <strong class="text-info">WheresTheBall</strong> uses AI, not wishful thinking.
     </p>
   </div>
 
-  <div class="row g-5 align-items-center">
-    <div class="col-md-6">
-      <h3 class="text-info mb-3"><i class="bi bi-lightning me-2"></i>Why We Built It</h3>
-      <p class="text-white-75 fs-6">
-        We got sick of losing. So instead of crying, we coded.
+  <div class="row align-items-center justify-content-center g-5 mb-5">
+    <div class="col-md-10">
+      <h3 class="text-info mb-3 text-center">
+        <i class="bi bi-lightning me-2"></i>Why We Built It
+      </h3>
+      <p class="fs-5 text-white-50 text-center">
+        We got tired of losing. So we built a squad of neural nets that see what humans miss.
         <br><br>
-        Our squad reverse-engineered the chaos — feeding real BOTB images into deep learning models that don’t guess. They <em>calculate</em>.
+        By feeding actual BOTB comps into deep learning models, we made predictions less “guess” and more “calculated strike.”
       </p>
-    </div>
-    <div class="col-md-6 text-center">
-      <img src="{{ url_for('static', filename='images/ai-target.png') }}" class="img-fluid rounded-4 border border-info border-opacity-25 shadow" alt="AI targeting">
     </div>
   </div>
 
-  <div class="row mt-5 g-4">
-    <div class="col-md-3">
-      <div class="card h-100 bg-dark border-info border-opacity-25 text-center p-4 hover-scale">
-        <div class="mb-3"><i class="bi bi-cpu text-info fs-1"></i></div>
-        <h4 class="text-info">AI Trained on History</h4>
-        <p class="text-white-75 mb-0">Thousands of competition images, real judge results, and pattern detection — all in one engine.</p>
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+    {% set features = [
+      ('cpu', 'AI Trained on History', 'Thousands of images. Real judge data. Pattern recognition that actually means something.'),
+      ('rocket-takeoff', 'Always Getting Smarter', 'We retrain weekly with new comps. Smarter models. Tighter predictions.'),
+      ('eye', 'Full Transparency', 'See our picks. Compare to winners. We don’t hide behind the AI curtain.'),
+      ('gem', 'Pro Access', 'Donators get the juice: top 5 predictions, overlays, history, and exclusive tools.')
+    ] %}
+    
+    {% for icon, title, desc in features %}
+    <div class="col">
+      <div class="card h-100 bg-dark border border-info border-opacity-25 text-center p-4 hover-scale">
+        <div class="mb-3"><i class="bi bi-{{ icon }} text-info fs-1"></i></div>
+        <h4 class="text-info">{{ title }}</h4>
+        <p class="text-white-50 mb-0">{{ desc }}</p>
       </div>
     </div>
-    <div class="col-md-3">
-      <div class="card h-100 bg-dark border-info border-opacity-25 text-center p-4 hover-scale">
-        <div class="mb-3"><i class="bi bi-rocket-takeoff text-info fs-1"></i></div>
-        <h4 class="text-info">Always Getting Smarter</h4>
-        <p class="text-white-75 mb-0">Every week we feed it new data. Every week it gets better. No static models here.</p>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card h-100 bg-dark border-info border-opacity-25 text-center p-4 hover-scale">
-        <div class="mb-3"><i class="bi bi-eye text-info fs-1"></i></div>
-        <h4 class="text-info">Full Transparency</h4>
-        <p class="text-white-75 mb-0">We show predictions <em>and</em> compare them to the actual winners. See it. Trust it.</p>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card h-100 bg-dark border-info border-opacity-25 text-center p-4 hover-scale">
-        <div class="mb-3"><i class="bi bi-gem text-info fs-1"></i></div>
-        <h4 class="text-info">Pro Access</h4>
-        <p class="text-white-75 mb-0">
-          Donators help keep us running — and in return, they unlock access to our top 5 model predictions, historical results, AI average overlays, and more.
-        </p>
-      </div>
-    </div>
+    {% endfor %}
   </div>
 </div>
 
 <style>
   .hover-scale {
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   .hover-scale:hover {
     transform: scale(1.05);
