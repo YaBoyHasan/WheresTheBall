@@ -1,11 +1,4 @@
-from flask import Blueprint, render_template
-
-latest_prediction = {
-    "comp_name": "BOTB Week 42",
-    "x": 58,
-    "y": 72,
-    "image_url": "images/sample.jpeg"  # Get CompName, Predicted(X,Y), Image dynamically later
-}
+from flask import Blueprint, render_template, url_for
 
 # core area
 core_blueprint = Blueprint("core", __name__)
@@ -24,7 +17,13 @@ def past_predictions():
 
 @core_blueprint.route("/latest")
 def latest_prediction():
-    return render_template("core/latest.html", latest=latest_prediction)
+    latest = {
+        "comp_name": "BOTB Week 42",
+        "x": 1258,
+        "y": 3272,
+        "image_url": url_for('static', filename='images/prediction.jpeg')  # Get CompName, Predicted(X,Y), Image dynamically later
+    }
+    return render_template("core/latest.html", latest=latest)
 
 # auth area
 #   auth_blueprint = Blueprint("auth", __name__)
