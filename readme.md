@@ -77,12 +77,15 @@ The project is in its early stages, with the following components implemented:
 
 Given the current state of the project, the following is an estimated timeline for completing the remaining features:
 
-- **AI Model Integration:** 2–3 weeks  
-- **Frontend Enhancements:** 1–2 weeks  
-- **Admin Panel Development:** 2 weeks  
-- **Payment Integration:** 1 week  
-- **User Management & Authentication:** 1–2 weeks  
-- **Testing & Deployment:** 1 week  
+AI Model Integration & Scraper Integration: 3–5 days
+
+Admin Panel & User Management: 5–7 days
+
+Donator Perks & PayPal Integration: 3–5 days
+
+Frontend Polish & Mobile UI: 3–5 days
+
+Testing & Deployment: 2–3 days
 
 These estimates assume full-time development and relevant experience. Delays may occur depending on challenges or additional features.
 
