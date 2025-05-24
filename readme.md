@@ -74,3 +74,30 @@ A Flask web app that uses AI to predict the correct coordinates in "spot the bal
 
 ## 📂 Project Structure (Planned)
 
+project/
+│
+├── app/
+│ ├── static/
+│ ├── templates/
+│ ├── routes/
+│ ├── models/
+│ ├── utils/
+│ ├── init.py
+│
+├── scraper/
+│ ├── scraper.py
+│
+├── models/
+│ ├── model_1.h5
+│ ├── model_2.h5
+│ └── ...
+│
+├── database.db
+├── .env
+├── .gitignore
+├── requirements.txt
+└── README.md
+
+## 📬 Contact / Ideas
+
+If you're interested in helping out, donating, or collaborating — stay tuned for updates!
