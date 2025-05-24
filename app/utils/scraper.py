@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from PIL import Image
 from io import BytesIO
 from app.models.user import db
-from app.models.botb_comp import BotbComp
+from app.models.botbcomp import BotbComp
 from config import Config
 
 def extract_coordinates(html_content):
