@@ -41,7 +41,7 @@ def register():
         new_user = User(
             username=form.username.data,
             email=form.email.data,
-            password=generate_password_hash(form.password.data),
+            password_hash=generate_password_hash(form.password.data),
             role="user",  # default role
             last_ip=request.remote_addr # log ip addr
         )
