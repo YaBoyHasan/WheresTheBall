@@ -4,35 +4,36 @@
 
 {% block content %}
 <div class="container py-5">
+  <!-- Header -->
   <div class="text-center mb-5">
     <h1 class="fw-bold text-info mb-3">
-      <i class="bi bi-info-circle me-2"></i>What’s <span class="text-white">WheresTheBall?</span>
+      <i class="bi bi-crosshair2 me-2"></i>Find the Ball, Beat the Game
     </h1>
     <p class="lead text-white-50">
-      BOTB’s cool — until you realise you're guessing blind. We're flipping the game. 
-      <strong class="text-info">WheresTheBall</strong> uses AI, not wishful thinking.
+      BOTB's cool — until you realise you're guessing blind. 
+      <strong class="text-info">WheresTheBall</strong> flips that.
+      We use AI, not vibes.
     </p>
   </div>
 
-  <div class="row align-items-center justify-content-center g-5 mb-5">
-    <div class="col-md-10">
-      <h3 class="text-info mb-3 text-center">
-        <i class="bi bi-lightning me-2"></i>Why We Built It
-      </h3>
-      <p class="fs-5 text-white-50 text-center">
-        We got tired of losing. So we built a squad of neural nets that see what humans miss.
-        <br><br>
-        By feeding actual BOTB comps into deep learning models, we made predictions less “guess” and more “calculated strike.”
+  <!-- Problem / Mission -->
+  <div class="row justify-content-center text-center mb-5">
+    <div class="col-lg-10">
+      <h3 class="text-info mb-3"><i class="bi bi-lightbulb me-2"></i>Why We Exist</h3>
+      <p class="fs-5 text-white-50">
+        We got tired of missing by a few pixels. So we trained machines to do it better.
+        Our models learn from real BOTB comps — judge clicks, images, patterns — and predict with accuracy no human can match.
       </p>
     </div>
   </div>
 
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+  <!-- Features -->
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-5">
     {% set features = [
-      ('cpu', 'AI Trained on History', 'Thousands of images. Real judge data. Pattern recognition that actually means something.'),
-      ('rocket-takeoff', 'Always Getting Smarter', 'We retrain weekly with new comps. Smarter models. Tighter predictions.'),
-      ('eye', 'Full Transparency', 'See our picks. Compare to winners. We don’t hide behind the AI curtain.'),
-      ('gem', 'Pro Access', 'Donators get the juice: top 5 predictions, overlays, history, and exclusive tools.')
+      ('cpu', 'AI Trained on History', 'Thousands of comps. Real judge coordinates. Learned patterns — not guesses.'),
+      ('rocket-takeoff', 'Always Getting Smarter', 'New comps trigger retraining. Our AI evolves weekly.'),
+      ('eye', 'Full Transparency', 'We show our predictions. You compare. No black box BS.'),
+      ('gem', 'Pro Access', 'Donators get all 5 models, overlays, past comps & more.')
     ] %}
     
     {% for icon, title, desc in features %}
@@ -41,6 +42,38 @@
         <div class="mb-3"><i class="bi bi-{{ icon }} text-info fs-1"></i></div>
         <h4 class="text-info">{{ title }}</h4>
         <p class="text-white-50 mb-0">{{ desc }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- AI Squad -->
+  <div class="row mt-5 text-center">
+    <div class="col-12">
+      <h3 class="text-info mb-3">
+        <i class="bi bi-robot me-2"></i>The AI Squad
+      </h3>
+      <p class="lead text-white-50">
+        5 unique models. Each with its own brain. Working together to predict the pixel.
+      </p>
+    </div>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-2">
+    {% set models = [
+      ('VanillaCNN', 'Basic CNN-based model. A pure baseline — no bells, no whistles.', 'Good baseline for comparison.'),
+      ('EnhancedCNN', 'Uses MobileNetV2 + upsampling to predict a heatmap.', 'Default for stronger accuracy.'),
+      ('HeatmapResCNN', 'Deeper CNN with extra layers/heads. Designed for finer features.', 'More experimental or multi-head predictions.'),
+      ('ChannelAttentionNet', 'Leverages channel attention to focus on relevant features.', 'Better performance through feature emphasis.'),
+      ('PoseNet', 'Pose-estimation inspired with spatial awareness & heatmaps.', 'Most advanced, spatially aware predictions.')
+    ] %}
+    
+    {% for name, desc, use in models %}
+    <div class="col">
+      <div class="card h-100 bg-dark border border-info border-opacity-25 p-4 hover-scale">
+        <h5 class="text-info mb-2"><i class="bi bi-cpu me-1"></i>{{ name }}</h5>
+        <p class="text-white-50 small mb-1">{{ desc }}</p>
+        <p class="text-white-50 fst-italic mb-0">{{ use }}</p>
       </div>
     </div>
     {% endfor %}
