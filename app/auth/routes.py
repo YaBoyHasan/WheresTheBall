@@ -12,6 +12,9 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user and user.check_password(form.password.data):
             session["user_id"] = user.id
+            user.last_login = datetime.utcnow()
+            user.last_ip = request.remote_addr
+            db.session.commit()
             flash("Logged in successfully", "success")
             return redirect(url_for("core.home"))
         else:
@@ -39,8 +42,8 @@ def register():
             username=form.username.data,
             email=form.email.data,
             password=generate_password_hash(form.password.data),
-            role="guest",  # default role
-            last_machine_ip=request.remote_addr # log ip addr
+            role="user",  # default role
+            last_ip=request.remote_addr # log ip addr
         )
         db.session.add(new_user)
         db.session.commit()
