@@ -16,3 +16,9 @@ def login():
         else:
             flash("Invalid credentials", "danger")
     return render_template("auth/login.html", form=form)
+
+@auth_blueprint.route("/logout")
+def logout():
+    session.clear()
+    flash("You’ve been logged out.", "info")
+    return redirect(url_for("core.home"))
