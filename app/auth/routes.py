@@ -28,20 +28,19 @@ def logout():
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
-        # Invite code check
-        if form.invite_code.data != "SECRET123":
-            flash("Invalid invite code", "danger")
+        existing_user = User.query.filter(
+            (User.email == form.email.data) | (User.username == form.username.data)
+        ).first()
+        if existing_user:
+            flash("Email or Username already taken", "warning")
             return redirect(url_for("auth.register"))
 
-        # Check if user already exists
-        existing_user = User.query.filter_by(email=form.email.data).first()
-        if existing_user:
-            flash("Email already registered", "warning")
-            return redirect(url_for("auth.login"))
-
-        # Create new user
-        new_user = User(email=form.email.data)
-        new_user.set_password(form.password.data)
+        new_user = User(
+            username=form.username.data,
+            email=form.email.data,
+            password=generate_password_hash(form.password.data),
+            role="guest"  # default role
+        )
         db.session.add(new_user)
         db.session.commit()
 
