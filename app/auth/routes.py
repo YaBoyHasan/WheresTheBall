@@ -39,7 +39,8 @@ def register():
             username=form.username.data,
             email=form.email.data,
             password=generate_password_hash(form.password.data),
-            role="guest"  # default role
+            role="guest",  # default role
+            last_machine_ip=request.remote_addr # log ip addr
         )
         db.session.add(new_user)
         db.session.commit()
