@@ -1,26 +1,31 @@
 {% extends "base.html" %}
+{% block title %}Login{% endblock %}
 {% block content %}
 <div class="container mt-5" style="max-width: 400px;">
-    <h2 class="mb-4 text-center">Login</h2>
-    <form method="POST">
+    <h2 class="mb-4 text-center fw-bold">Welcome Back!</h2>
+    <form method="POST" novalidate>
         {{ form.hidden_tag() }}
 
         <div class="mb-3">
-            {{ form.email.label(class="form-label") }}
-            {{ form.email(class="form-control") }}
+            {{ form.username.label(class="form-label fw-semibold") }}
+            {{ form.username(class="form-control", placeholder="Enter your username") }}
         </div>
 
         <div class="mb-3">
-            {{ form.password.label(class="form-label") }}
-            {{ form.password(class="form-control") }}
+            {{ form.password.label(class="form-label fw-semibold") }}
+            {{ form.password(class="form-control", placeholder="Enter your password") }}
         </div>
 
         <div class="d-grid">
-            {{ form.submit(class="btn btn-primary") }}
+            {{ form.submit(class="btn btn-primary btn-lg") }}
         </div>
     </form>
     <div class="text-center mt-3">
-    <p>Got an invite code? <a href="{{ url_for('auth.register') }}">Register</a></p>
+        <p>Don't have an account? 
+            <a href="{{ url_for('auth.register') }}" class="btn btn-link p-0 align-baseline text-primary fw-semibold" style="text-decoration: none;">
+                Register
+            </a>
+        </p>
     </div>
 </div>
 {% endblock %}

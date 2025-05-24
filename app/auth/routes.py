@@ -9,14 +9,12 @@ auth_blueprint = Blueprint("auth", __name__, url_prefix="/auth")
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
+        user = User.query.filter_by(username=form.username.data).first()
         if user and user.check_password(form.password.data):
-            session["user_id"] = user.id
+            session['user_id'] = user.id
             user.last_login = datetime.utcnow()
             user.last_ip = request.remote_addr
             db.session.commit()
-            flash("Logged in successfully", "success")
-            return redirect(url_for("core.home"))
         else:
             flash("Invalid email or password", "danger")
     return render_template("auth/login.html", form=form)
@@ -38,14 +36,15 @@ def register():
             flash("Email or Username already taken", "warning")
             return redirect(url_for("auth.register"))
 
-        new_user = User(
+        # Inside your registration route
+        user = User(
             username=form.username.data,
             email=form.email.data,
-            password_hash=generate_password_hash(form.password.data),
-            role="user",  # default role
-            last_ip=request.remote_addr # log ip addr
+            registered_at=datetime.utcnow(),
+            last_ip=request.remote_addr
         )
-        db.session.add(new_user)
+        user.set_password(form.password.data)
+        db.session.add(user)
         db.session.commit()
 
         flash("Registration successful. Please log in.", "success")
