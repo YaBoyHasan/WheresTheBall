@@ -9,11 +9,17 @@
         <div class="mb-3">
             {{ form.username.label(class="form-label fw-semibold") }}
             {{ form.username(class="form-control", placeholder="Enter your username") }}
+            {% for error in form.username.errors %}
+                <div class="text-danger small mt-1">{{ error }}</div>
+            {% endfor %}
         </div>
 
         <div class="mb-3">
             {{ form.password.label(class="form-label fw-semibold") }}
             {{ form.password(class="form-control", placeholder="Enter your password") }}
+            {% for error in form.password.errors %}
+                <div class="text-danger small mt-1">{{ error }}</div>
+            {% endfor %}
         </div>
 
         <div class="d-grid">
