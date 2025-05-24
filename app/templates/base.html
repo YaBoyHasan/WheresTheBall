@@ -108,7 +108,7 @@
       </li>
     </ul>
     <div class="d-flex">
-      {% if session.user_id %}
+      {% if g.user %}
       <a class="btn btn-sm btn-primary" href="{{ url_for('auth.logout') }}">
         <i class="bi bi-box-arrow-right me-1"></i> Logout
       </a>
