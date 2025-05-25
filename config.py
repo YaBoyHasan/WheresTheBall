@@ -17,9 +17,12 @@ class Config:
     # Security
     SECRET_KEY = os.getenv("SECRET_KEY", "dev-key")  # Default weak key for development
 
-    # Botb Scraper
+    # Botb Scraper & preprocessing
     IMAGES_FOLDER = os.getenv("IMAGES_FOLDER", "botb_data/comp-images")
-    
+    TARGET_SIZE = (224, 224)
+    NUM_AUGS = 1
+    PROCESSED_DATA_PATH = 'botb_data/processed_data.npz'
+
     # API Keys (optional)
     # GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
     # STRIPE_API_KEY = os.getenv("STRIPE_API_KEY")

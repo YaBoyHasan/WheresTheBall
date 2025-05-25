@@ -6,6 +6,7 @@ from io import BytesIO
 from app.models.user import db
 from app.models.botbcomp import BotbComp
 from config import Config
+from app.utils.preprocess import preprocess_and_save
 
 def extract_coordinates(html_content):
     soup = BeautifulSoup(html_content, 'html.parser')
@@ -131,7 +132,9 @@ def fetch_and_store_comp_data():
         if results:
             insert_into_db(results)
             print(f"Inserted {len(results)} new comps.")
+            # Add in real -> preprocess_and_save()
         else:
             print("No valid competitions to insert.")
+        preprocess_and_save()
     except Exception as e:
         print(f"Scheduler error: {e}")

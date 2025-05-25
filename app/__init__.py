@@ -5,11 +5,10 @@ from app.routes.auth import auth_blueprint
 from app.models.user import db, User
 from apscheduler.schedulers.background import BackgroundScheduler
 from app.utils.scraper import fetch_and_store_comp_data  # adjust path if needed
-import os
+import os # Logging to test AP Scheduler running scraping task in background hourly
+import logging
 
-# Logging to test AP Scheduler running scraping task in background hourly
-# import logging
-# logging.getLogger('apscheduler').setLevel(logging.DEBUG)
+logging.getLogger('apscheduler').setLevel(logging.DEBUG)
 
 def create_app():
     app = Flask(__name__)
@@ -39,7 +38,7 @@ def create_app():
             with app.app_context():
                 fetch_and_store_comp_data()
 
-        scheduler.add_job(func=scheduled_job, trigger="interval", hours=1)
+        scheduler.add_job(func=scheduled_job, trigger="interval", minutes=1)
         scheduler.start()
 
     return app
