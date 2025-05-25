@@ -38,7 +38,7 @@ def create_app():
             with app.app_context():
                 fetch_and_store_comp_data()
 
-        scheduler.add_job(func=scheduled_job, trigger="interval", minutes=1)
+        scheduler.add_job(func=scheduled_job, trigger="interval", hours=1)
         scheduler.start()
 
     return app

@@ -132,9 +132,8 @@ def fetch_and_store_comp_data():
         if results:
             insert_into_db(results)
             print(f"Inserted {len(results)} new comps.")
-            # Add in real -> preprocess_and_save()
+            preprocess_and_save()
         else:
             print("No valid competitions to insert.")
-        preprocess_and_save()
     except Exception as e:
         print(f"Scheduler error: {e}")

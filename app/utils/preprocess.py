@@ -44,7 +44,7 @@ def preprocess_and_save():
     db.session.close()
 
     all_imgs, all_coords = [], []
-#IMAGES_FOLDER, TARGET_SIZE, NUM_AUGS, PROCESSED_DATA_PATH
+    
     for row in tqdm(data, desc="Processing"):
         x, y = row.JudgesX, row.JudgesY
         img_path = os.path.join(Config.IMAGES_FOLDER, row.ImageFileName)
