@@ -23,6 +23,12 @@ class Config:
     NUM_AUGS = 1
     PROCESSED_DATA_PATH = 'botb_data/processed_data.npz'
 
+    MODEL_FILE = 'models/best_model.keras'
+    TARGET_SHAPE = (224, 224, 3)
+    BATCH_SIZE = 8
+    EPOCHS = 10
+    LOG_DIR = 'logs'
+
     # API Keys (optional)
     # GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
     # STRIPE_API_KEY = os.getenv("STRIPE_API_KEY")
