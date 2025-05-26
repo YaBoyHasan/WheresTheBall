@@ -24,8 +24,8 @@ class Config:
     PROCESSED_DATA_PATH = 'botb_data/processed_data.npz'
     
     TARGET_SHAPE = (224, 224, 3)
-    BATCH_SIZE = 8
-    EPOCHS = 10
+    BATCH_SIZE = 16
+    EPOCHS = 30
     LOG_DIR = 'logs'
 
     # API Keys (optional)

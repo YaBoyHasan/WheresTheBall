@@ -3,7 +3,6 @@ import cv2
 import numpy as np
 import random
 from tqdm import tqdm
-
 from config import Config
 from app.models.botbcomp import BotbComp, db  # assuming your SQLAlchemy setup
 
