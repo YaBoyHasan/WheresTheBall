@@ -5,24 +5,7 @@ from tensorflow.keras import layers, Model
 from tensorflow.keras.applications import MobileNetV2
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, TensorBoard
 from config import Config
-
-class ChannelAttention(layers.Layer):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
-    def build(self, input_shape):
-        channels = input_shape[-1]
-        self.shared_dense = layers.Dense(channels // 8, activation='relu')
-        self.dense_avg = layers.Dense(channels, activation='sigmoid')
-        self.dense_max = layers.Dense(channels, activation='sigmoid')
-
-    def call(self, inputs):
-        avg_pool = tf.reduce_mean(inputs, axis=[1, 2], keepdims=True)
-        max_pool = tf.reduce_max(inputs, axis=[1, 2], keepdims=True)
-        avg_out = self.dense_avg(self.shared_dense(avg_pool))
-        max_out = self.dense_max(self.shared_dense(max_pool))
-        weights = tf.sigmoid(avg_out + max_out)
-        return inputs * weights
+from app.predictors.VanillaCNN import ChannelAttention
 
 def run_training():
     # Load preprocessed data
