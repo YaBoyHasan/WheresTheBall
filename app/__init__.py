@@ -5,7 +5,7 @@ from app.routes.auth import auth_blueprint
 from app.models.user import db, User
 from apscheduler.schedulers.background import BackgroundScheduler
 from app.utils.scraper import fetch_and_store_comp_data  # adjust path if needed
-import os # Logging to test AP Scheduler running scraping task in background hourly
+import os
 import logging
 
 logging.getLogger('apscheduler').setLevel(logging.DEBUG)
