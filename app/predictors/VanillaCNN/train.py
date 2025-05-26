@@ -6,6 +6,7 @@ from tensorflow.keras.applications import MobileNetV2
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, TensorBoard
 from config import Config
 from app.predictors import ChannelAttention
+from sklearn.model_selection import train_test_split
 
 def run_training():
     # Load preprocessed data
@@ -13,7 +14,6 @@ def run_training():
     images, coords = data['X'], data['y']
 
     # Train/test split
-    from sklearn.model_selection import train_test_split
     X_train, X_test, y_train, y_test = train_test_split(images, coords, test_size=0.2, random_state=42)
 
     # Build model
@@ -33,7 +33,7 @@ def run_training():
 
     callbacks = [
         EarlyStopping(patience=5, monitor='val_mae', restore_best_weights=True),
-        ModelCheckpoint("app/predictors/VanillaCNN/model.keras", monitor='val_mae', save_best_only=True),
+        ModelCheckpoint('app/predictors/VanillaCNN/model.keras', monitor='val_mae', save_best_only=True),
         TensorBoard(log_dir=Config.LOG_DIR)
     ]
 
