@@ -22,8 +22,7 @@ class Config:
     TARGET_SIZE = (224, 224)
     NUM_AUGS = 1
     PROCESSED_DATA_PATH = 'botb_data/processed_data.npz'
-
-    MODEL_FILE = 'models/best_model.keras'
+    
     TARGET_SHAPE = (224, 224, 3)
     BATCH_SIZE = 8
     EPOCHS = 10

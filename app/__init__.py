@@ -19,6 +19,11 @@ def create_app():
     with app.app_context():
         db.create_all()
 
+    @app.cli.command("train-vanillacnn")
+    def train_vanillacnn():
+        from app.predictors.VanillaCNN import train
+        train.run_training()
+
     @app.before_request
     def load_logged_in_user():
         user_id = session.get("user_id")
