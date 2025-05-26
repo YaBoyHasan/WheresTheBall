@@ -4,7 +4,7 @@ from tensorflow.keras import layers, Model
 from tensorflow.keras.applications import MobileNetV2
 from sklearn.model_selection import train_test_split
 from config import Config
-from app.predictors import ChannelAttention
+from app.predictors.ChannelAttention import ChannelAttention
 
 def run_training():
     data = np.load(Config.PROCESSED_DATA_PATH)

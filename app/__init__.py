@@ -24,6 +24,26 @@ def create_app():
         from app.predictors.VanillaCNN import train
         train.run_training()
 
+    @app.cli.command("train-mobilenetdense")
+    def train_vanillacnn():
+        from app.predictors.MobileNetDense import train
+        train.run_training()
+
+    @app.cli.command("train-efficientnet")
+    def train_vanillacnn():
+        from app.predictors.EfficientNet import train
+        train.run_training()
+
+    @app.cli.command("train-channelattentionnet")
+    def train_vanillacnn():
+        from app.predictors.ChannelAttentionNet import train
+        train.run_training()
+
+    @app.cli.command("train-unetheatmap")
+    def train_vanillacnn():
+        from app.predictors.UNetHeatmap import train
+        train.run_training()
+
     @app.before_request
     def load_logged_in_user():
         user_id = session.get("user_id")
