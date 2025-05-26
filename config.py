@@ -25,7 +25,7 @@ class Config:
     
     TARGET_SHAPE = (224, 224, 3)
     BATCH_SIZE = 16
-    EPOCHS = 30
+    EPOCHS = 20
     LOG_DIR = 'logs'
 
     # API Keys (optional)
