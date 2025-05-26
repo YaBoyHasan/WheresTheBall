@@ -19,14 +19,13 @@ class Config:
 
     # Botb Scraper & preprocessing
     IMAGES_FOLDER = os.getenv("IMAGES_FOLDER", "botb_data/comp-images")
-    TARGET_SIZE = (224, 224)
-    NUM_AUGS = 1
-    PROCESSED_DATA_PATH = 'botb_data/processed_data.npz'
-    
-    TARGET_SHAPE = (224, 224, 3)
-    BATCH_SIZE = 16
-    EPOCHS = 20
+    PROCESSED_DATA_PATH = 'botb_data/processed_data.npz'    
     LOG_DIR = 'logs'
+
+    # Preprocessing + training + predicting target_size
+    TARGET_SIZE = (224, 224)
+    TARGET_SHAPE = (224, 224, 3)
+    NUM_AUGS = 1
 
     # API Keys (optional)
     # GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
