@@ -5,7 +5,7 @@ from tensorflow.keras import layers, Model
 from tensorflow.keras.applications import MobileNetV2
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, TensorBoard
 from config import Config
-from app.predictors.VanillaCNN import ChannelAttention
+from app.predictors import ChannelAttention
 
 def run_training():
     # Load preprocessed data
