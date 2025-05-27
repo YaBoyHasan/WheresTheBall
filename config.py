@@ -25,7 +25,6 @@ class Config:
     # Preprocessing + training + predicting target_size
     TARGET_SIZE = (224, 224)
     TARGET_SHAPE = (224, 224, 3)
-    HEATMAP_SHAPE = (28, 28)
     NUM_AUGS = 1
 
     # API Keys (optional)

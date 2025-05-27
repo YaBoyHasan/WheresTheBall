@@ -7,8 +7,6 @@ from app.models.botbcomp import db, BotbComp
 from app.predictors.VanillaCNN import predict as VanillaCNNPredict
 from app.predictors.MobileNetDense import predict as MobileNetDensePredict
 from app.predictors.EfficientNet import predict as EfficientNetPredict
-from app.predictors.ChannelAttentionNet import predict as ChannelAttentionNetPredict
-from app.predictors.UNetHeatmap import predict as UNetHeatmapPredict
 
 def getresponse():
     # Load data from DB
@@ -18,9 +16,7 @@ def getresponse():
     y_preds = {
         "VanillaCNN": [],
         "MobileNetDense": [],
-        "EfficientNet": [],
-        "ChannelAttentionNet": [],
-        "UNetHeatmap": []
+        "EfficientNet": []
     }
 
     for comp in comps:
@@ -33,8 +29,6 @@ def getresponse():
         y_preds["VanillaCNN"].append(VanillaCNNPredict.predict_coordinates(img_path))
         y_preds["MobileNetDense"].append(MobileNetDensePredict.predict_coordinates(img_path))
         y_preds["EfficientNet"].append(EfficientNetPredict.predict_coordinates(img_path))
-        y_preds["ChannelAttentionNet"].append(ChannelAttentionNetPredict.predict_coordinates(img_path))
-        y_preds["UNetHeatmap"].append(UNetHeatmapPredict.predict_coordinates(img_path))
 
     y_true = np.array(y_true)
 

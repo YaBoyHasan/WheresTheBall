@@ -2,6 +2,7 @@
 import numpy as np, tensorflow as tf
 from tensorflow.keras import layers, Model
 from tensorflow.keras.applications import EfficientNetB0
+from tensorflow.keras.callbacks import EarlyStopping
 from sklearn.model_selection import train_test_split
 from config import Config
 
@@ -17,6 +18,17 @@ def run_training():
     x = layers.Dense(256, activation='relu')(x)
     out = layers.Dense(2, activation='sigmoid')(x)
     model = Model(inputs=base.input, outputs=out)
-    model.compile(optimizer='adam', loss='mse', metrics=['mae'])
-    model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=20, batch_size=32)
+    model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-5), loss='mse', metrics=['mae'])
+    early_stop = EarlyStopping(
+        monitor='val_loss', 
+        patience=8, 
+        restore_best_weights=True)
+
+    model.fit(
+        X_train, y_train,
+        validation_data=(X_test, y_test),
+        epochs=30,
+        batch_size=16,
+        callbacks=[early_stop]
+    )
     model.save('app/predictors/EfficientNet/model.keras')
