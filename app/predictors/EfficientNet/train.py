@@ -21,13 +21,13 @@ def run_training():
     model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-5), loss='mse', metrics=['mae'])
     early_stop = EarlyStopping(
         monitor='val_loss', 
-        patience=8, 
+        patience=10, 
         restore_best_weights=True)
 
     model.fit(
         X_train, y_train,
         validation_data=(X_test, y_test),
-        epochs=30,
+        epochs=50,
         batch_size=16,
         callbacks=[early_stop]
     )

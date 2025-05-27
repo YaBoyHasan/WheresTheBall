@@ -34,6 +34,11 @@ def create_app():
         from app.predictors.EfficientNet import train
         train.run_training()
 
+    @app.cli.command("train-spatialsoftmax")
+    def train_vanillacnn():
+        from app.predictors.SpatialSoftmax import train
+        train.run_training()
+
     @app.cli.command("test-models")
     def train_vanillacnn():
         from app.utils import test_predictions

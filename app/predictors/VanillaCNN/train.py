@@ -24,14 +24,14 @@ def run_training():
     
     early_stop = EarlyStopping(
         monitor='val_loss',    # watch validation loss
-        patience=8,
+        patience=10,
         restore_best_weights=True
     )
 
     model.fit(
         X_train, y_train,
         validation_data=(X_test, y_test),
-        epochs=30,
+        epochs=50,
         batch_size=16,
         callbacks=[early_stop]
     )

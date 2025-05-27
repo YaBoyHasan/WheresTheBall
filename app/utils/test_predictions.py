@@ -5,7 +5,6 @@ from config import Config
 from app.models.botbcomp import db, BotbComp
 
 from app.predictors.VanillaCNN import predict as VanillaCNNPredict
-from app.predictors.MobileNetDense import predict as MobileNetDensePredict
 from app.predictors.EfficientNet import predict as EfficientNetPredict
 
 def getresponse():
@@ -15,7 +14,6 @@ def getresponse():
     y_true = []
     y_preds = {
         "VanillaCNN": [],
-        "MobileNetDense": [],
         "EfficientNet": []
     }
 
@@ -27,7 +25,6 @@ def getresponse():
         y_true.append([comp.JudgesX, comp.JudgesY])
 
         y_preds["VanillaCNN"].append(VanillaCNNPredict.predict_coordinates(img_path))
-        y_preds["MobileNetDense"].append(MobileNetDensePredict.predict_coordinates(img_path))
         y_preds["EfficientNet"].append(EfficientNetPredict.predict_coordinates(img_path))
 
     y_true = np.array(y_true)
