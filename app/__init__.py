@@ -44,6 +44,11 @@ def create_app():
         from app.predictors.UNetHeatmap import train
         train.run_training()
 
+    @app.cli.command("test-models")
+    def train_vanillacnn():
+        from app.utils import test_predictions
+        test_predictions.getresponse()
+
     @app.before_request
     def load_logged_in_user():
         user_id = session.get("user_id")

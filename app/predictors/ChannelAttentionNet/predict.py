@@ -3,9 +3,10 @@ import os, cv2, numpy as np, tensorflow as tf
 from tensorflow.keras.models import load_model
 from app.utils.preprocess import resize_with_padding
 from config import Config
-from app.predictors import ChannelAttention
+from app.predictors.ChannelAttention import ChannelAttention
 
-model = load_model('app/predictors/ChannelAttentionNet/model.keras', custom_objects={'ChannelAttention': ChannelAttention})
+model = load_model('app/predictors/ChannelAttentionNet/model.keras',
+        custom_objects={'ChannelAttention': ChannelAttention})
 
 def predict_coordinates(img_path):
     img = cv2.imread(img_path)
