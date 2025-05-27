@@ -34,16 +34,6 @@ def create_app():
         from app.predictors.EfficientNet import train
         train.run_training()
 
-    @app.cli.command("train-channelattentionnet")
-    def train_vanillacnn():
-        from app.predictors.ChannelAttentionNet import train
-        train.run_training()
-
-    @app.cli.command("train-unetheatmap")
-    def train_vanillacnn():
-        from app.predictors.UNetHeatmap import train
-        train.run_training()
-
     @app.cli.command("test-models")
     def train_vanillacnn():
         from app.utils import test_predictions
